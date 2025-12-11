@@ -1,0 +1,487 @@
+/* Absher TrustMatch - Fingerprint Verification Styles */
+
+/* Arabic Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap');
+
+/* CSS Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Absher Saudi Green Color Palette */
+    --absher-green: #1A7A4C;
+    --absher-green-dark: #136038;
+    --absher-green-light: #E8F5E9;
+    --success-green: #2E7D32;
+    --error-red: #C62828;
+    --error-light: #FFEBEE;
+    
+    /* Neutral Colors */
+    --text-primary: #1F1F1F;
+    --text-secondary: #666666;
+    --text-light: #999999;
+    --border-color: #E0E0E0;
+    --bg-white: #FFFFFF;
+    --bg-grey: #F5F5F5;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    
+    /* Spacing */
+    --spacing-xs: 8px;
+    --spacing-sm: 12px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+}
+
+body {
+    font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: var(--bg-grey);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    direction: rtl;
+    padding-bottom: 40px;
+}
+
+/* Top Navigation Bar */
+.top-bar {
+    background-color: var(--bg-white);
+    padding: var(--spacing-md) var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-btn,
+.absher-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+}
+
+.logo-btn img,
+.absher-logo img {
+    display: block;
+    object-fit: contain;
+}
+
+.logo-moi {
+    height: 44px;
+}
+
+.logo-absher {
+    width: 45px;
+    height: 61px;
+}
+
+.logo-btn:hover,
+.absher-logo:hover {
+    opacity: 0.85;
+}
+
+.page-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    flex: 1;
+    text-align: center;
+}
+
+/* Main Content */
+.main-content {
+    padding: var(--spacing-lg) var(--spacing-md);
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* Instruction Text */
+.instruction-text {
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.instruction-text p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Card Styles */
+.card {
+    background-color: var(--bg-white);
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.data-entry-card {
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 14px 45px 14px 14px;
+    border: 1.5px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Tajawal', sans-serif;
+    color: var(--text-primary);
+    transition: all 0.3s;
+    background-color: var(--bg-white);
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: var(--absher-green);
+    box-shadow: 0 0 0 3px rgba(26, 122, 76, 0.1);
+}
+
+.input-wrapper input::placeholder {
+    color: var(--text-light);
+}
+
+.input-icon {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    font-size: 18px;
+    pointer-events: none;
+}
+
+/* Primary Button */
+.primary-btn {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--absher-green);
+    color: var(--bg-white);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Tajawal', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--spacing-xl);
+}
+
+.primary-btn:hover {
+    background-color: var(--absher-green-dark);
+    box-shadow: var(--shadow-md);
+}
+
+.primary-btn:active {
+    transform: scale(0.98);
+}
+
+.primary-btn:disabled {
+    background-color: var(--border-color);
+    cursor: not-allowed;
+    color: var(--text-light);
+}
+
+/* Fingerprint Section */
+.fingerprint-section {
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+}
+
+.fingerprint-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Fingerprint Icon */
+.fingerprint-icon {
+    position: relative;
+    z-index: 10;
+    font-size: 80px;
+    color: var(--absher-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s;
+}
+
+/* Idle State - Pulse Animation */
+.fingerprint-icon.idle {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.05);
+    }
+}
+
+/* Scanning Rings */
+.scan-ring {
+    position: absolute;
+    border: 2px solid var(--absher-green);
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.scan-ring.active {
+    animation: scan-wave 2s ease-out infinite;
+}
+
+.ring-1 {
+    width: 120px;
+    height: 120px;
+}
+
+.ring-2 {
+    width: 160px;
+    height: 160px;
+    animation-delay: 0.3s;
+}
+
+.ring-3 {
+    width: 200px;
+    height: 200px;
+    animation-delay: 0.6s;
+}
+
+@keyframes scan-wave {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+}
+
+/* Result Icons */
+.result-icon {
+    position: absolute;
+    font-size: 100px;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 15;
+}
+
+.result-icon.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.success-icon {
+    color: var(--success-green);
+}
+
+.failure-icon {
+    color: var(--error-red);
+}
+
+/* Status Text */
+.status-text {
+    font-size: 15px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.status-text.scanning {
+    color: var(--absher-green);
+    font-weight: 600;
+}
+
+.status-text.success {
+    color: var(--success-green);
+    font-weight: 600;
+}
+
+.status-text.failure {
+    color: var(--error-red);
+    font-weight: 600;
+}
+
+/* Demo Controls */
+.demo-controls {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background-color: var(--bg-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.demo-controls h3 {
+    font-size: 16px;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.demo-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-xs);
+}
+
+.demo-btn {
+    display: inline-block;
+    padding: 10px 16px;
+    background-color: var(--bg-grey);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Tajawal', sans-serif;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.demo-btn:hover {
+    background-color: var(--absher-green-light);
+    border-color: var(--absher-green);
+    color: var(--absher-green);
+}
+
+/* Info Card */
+.info-card {
+    background-color: var(--absher-green-light);
+    border-right: 4px solid var(--absher-green);
+    padding: var(--spacing-md);
+    margin: var(--spacing-lg) var(--spacing-md);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info-card i {
+    color: var(--absher-green);
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.info-card p {
+    font-size: 13px;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* State-specific Styles */
+.fingerprint-section.scanning .fingerprint-icon {
+    animation: none;
+}
+
+.fingerprint-section.success .card,
+.fingerprint-section.failure .card {
+    border: 2px solid;
+}
+
+.fingerprint-section.success .card {
+    border-color: var(--success-green);
+    background-color: rgba(46, 125, 50, 0.05);
+}
+
+.fingerprint-section.failure .card {
+    border-color: var(--error-red);
+    background-color: rgba(198, 40, 40, 0.05);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .main-content {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+    
+    .fingerprint-container {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .fingerprint-icon {
+        font-size: 70px;
+    }
+    
+    .result-icon {
+        font-size: 90px;
+    }
+}
+
+/* Loading State */
+.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* Screen Reader Only Content */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Absher TrustMatch - Fingerprint Verification System">
+    <title>Absher TrustMatch – Fingerprint Verification</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <header class="top-bar" role="banner">
+        <div class="logo-btn" aria-label="MOI 2030 Logo">
+            <img src="https://www.absher.sa/portal/individuals/assets/icons/moi-2030-logos.png" 
+                 alt="MOI 2030" 
+                 class="logo-moi">
+        </div>
+        <h1 class="page-title">مطابقة الهوية بالبصمة</h1>
+        <div class="absher-logo" aria-label="Absher Logo">
+            <img src="https://www.absher.sa/portal/individuals/assets/images/absher_logo.svg" 
+                 alt="Absher Logo" 
+                 class="logo-absher">
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content" role="main">
+        <!-- Instruction Text -->
+        <section class="instruction-text" aria-labelledby="instruction-heading">
+            <p id="instruction-heading">أدخل بيانات الهوية، ثم قم بمسح بصمة الإصبع للتحقق من أن صاحب الهوية هو الشخص الموجود أمامك.</p>
+        </section>
+
+        <!-- Data Entry Card -->
+        <section class="card data-entry-card" aria-labelledby="data-entry-heading">
+            <h2 id="data-entry-heading" class="sr-only">إدخال بيانات الهوية</h2>
+            <div class="form-group">
+                <label for="national-id">رقم الهوية الوطنية</label>
+                <div class="input-wrapper">
+                    <input type="text" 
+                           id="national-id" 
+                           name="national-id"
+                           placeholder="3XXXXXXXXX" 
+                           maxlength="10"
+                           aria-required="false"
+                           autocomplete="off">
+                    <i class="fas fa-id-card input-icon" aria-hidden="true"></i>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="birth-date">تاريخ الميلاد</label>
+                <div class="input-wrapper">
+                    <input type="text" 
+                           id="birth-date" 
+                           name="birth-date"
+                           placeholder="YYYY-MM-DD" 
+                           readonly
+                           aria-readonly="true"
+                           autocomplete="bday">
+                    <i class="fas fa-calendar input-icon" aria-hidden="true"></i>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="id-version">رقم إصدار الهوية</label>
+                <div class="input-wrapper">
+                    <input type="text" 
+                           id="id-version" 
+                           name="id-version"
+                           placeholder="1" 
+                           maxlength="6" 
+                           min="1"
+                           autocomplete="off">
+                    <i class="fas fa-hashtag input-icon" aria-hidden="true"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Primary Action Button -->
+        <button class="primary-btn" 
+                id="verify-btn" 
+                type="button"
+                onclick="startVerification()"
+                aria-label="بدء عملية التحقق بالبصمة">
+            بدء التحقق بالبصمة
+        </button>
+
+        <!-- Fingerprint Scanning Area -->
+        <section class="fingerprint-section" 
+                 id="fingerprint-section" 
+                 aria-live="polite"
+                 aria-atomic="true">
+            <div class="fingerprint-container" id="fingerprint-container">
+                <!-- Animated Scanning Rings -->
+                <div class="scan-ring ring-1" id="ring-1" aria-hidden="true"></div>
+                <div class="scan-ring ring-2" id="ring-2" aria-hidden="true"></div>
+                <div class="scan-ring ring-3" id="ring-3" aria-hidden="true"></div>
+                
+                <!-- Fingerprint Icon -->
+                <div class="fingerprint-icon" id="fingerprint-icon" aria-hidden="true">
+                    <i class="fas fa-fingerprint"></i>
+                </div>
+
+                <!-- Result Icons -->
+                <div class="result-icon success-icon" 
+                     id="success-icon" 
+                     role="status"
+                     aria-label="نجاح التحقق"
+                     aria-hidden="true">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="result-icon failure-icon" 
+                     id="failure-icon" 
+                     role="status"
+                     aria-label="فشل التحقق"
+                     aria-hidden="true">
+                    <i class="fas fa-times-circle"></i>
+                </div>
+            </div>
+
+            <!-- Status Text -->
+            <p class="status-text" id="status-text" role="status">ضع إصبع المستفيد على جهاز البصمة</p>
+        </section>
+
+        <!-- State Demo Controls (for demonstration purposes) -->
+        <section class="demo-controls" aria-labelledby="demo-heading">
+            <h3 id="demo-heading">التحكم في الحالات (للعرض التوضيحي)</h3>
+            <div class="demo-buttons">
+                <button class="demo-btn" 
+                        type="button"
+                        onclick="setState('idle')"
+                        aria-label="تعيين حالة الخمول">
+                    حالة الخمول
+                </button>
+                <button class="demo-btn" 
+                        type="button"
+                        onclick="setState('scanning')"
+                        aria-label="تعيين حالة المسح">
+                    جاري المسح
+                </button>
+                <button class="demo-btn" 
+                        type="button"
+                        onclick="setState('success')"
+                        aria-label="تعيين حالة النجاح">
+                    نجاح
+                </button>
+                <button class="demo-btn" 
+                        type="button"
+                        onclick="setState('failure')"
+                        aria-label="تعيين حالة الفشل">
+                    فشل
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom Info Card -->
+    <aside class="info-card" role="complementary" aria-label="معلومات مهمة">
+        <i class="fas fa-info-circle" aria-hidden="true"></i>
+        <p>تأكد من أن الهوية الوطنية صالحة وأن صاحبها حاضر شخصياً</p>
+    </aside>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
